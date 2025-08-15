@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Brandify</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <section id="navbar"></section>
+
+    <section class="section" style="background-color: var(--section)">
+      <div class="container">
+        <h2 class="reveal">Discutons de votre projet</h2>
+        <p class="lead reveal">
+          Remplissez le formulaire, un expert vous répond sous 24h.
+        </p>
+
+        <!-- BLOC GAUCHE : Formulaire -->
+        <div class="grid contact-grid">
+          
+          <form id="contact-form" class="card reveal">  
+            <h2>Contactez-nous</h2>
+            <input class="input" type="text" name="name" placeholder="Votre nom" required/>
+            <input class="input" type="email" name="email" placeholder="Votre email" required />
+            <input class="input" type="tel" name="tel" placeholder="Votre numéro de téléphone" required />
+            <input class="input" name="company" placeholder="Entreprise (optionnel)" />
+            <select class="input" name="service" required>
+              <option value="">Service souhaité</option>
+              <option>Développement web & mobile</option>
+              <option>Communication digitale</option>
+              <option>Design & UX/UI</option>
+              <option>Stratégie marketing</option>
+              <option>Analyse data</option>
+              <option>Autre</option>
+            </select>
+            <textarea class="input" name="message" placeholder="Parlez-nous de vos objectifs…" ></textarea>
+            <button class="btn btn-primary" type="submit">Envoyer</button>
+            <div id="form-status" style="color: var(--brand-blue); font-weight: 600" ></div>
+          </form>
+
+          <!-- BLOC DROIT : Core team + coordonnées -->
+          <div class="card reveal left-box">
+            <h2>Notre équipe</h2>
+            <div class="team-row">
+              <div class="member">
+                <div class="member-photo">
+                  <img src="../assets/img/justin_mondji.jpg" alt="Jean Dupont" />
+                </div>
+                <h3>Justin MONDJI</h3>
+                <p class="role">Développeur &amp; Designer</p>
+                <div class="social-links">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div class="member">
+                <div class="member-photo">
+                  <img src="../assets/img/solange_gbogbo.jpg" alt="Sarah Martin" />
+                </div>
+                <h3>Solange GBOGBO</h3>
+                <p class="role">Charger d'affaire</p>
+                <div class="social-links">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div class="member">
+                <div class="member-photo">
+                  <img src="../assets/img/lucien_adagbanou.jpg" alt="Lucien AGBANOU" />
+                </div>
+                <h3>Lucien AGBANOU</h3>
+                <p class="role">Communicant &amp; Marketeur</p>
+                <div class="social-links">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+
+              <div class="member">
+                <div class="member-photo">
+                  <img src="../assets/img/cephas_gove.jpg" alt="Céphas GOVE" />
+                </div>
+                <h3>Céphas GOVE</h3>
+                <p class="role">Analyste Data</p>
+                <div class="social-links">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+            </div> <br>
+
+            <!-- Coordonnées -->
+            <div class="coords">
+              <h3>Coordonnées</h3>
+              <a href="mailto:brandify@gmail.com"><p><b>Email :</b> brandify@gmail.com</p></a>
+              <a href="tel:+22897791374"><p><b>Téléphone :</b> +228 91 39 48 69</p></a>
+              <p><b>Adresse :</b> Lomé, Togo</p>
+              <p class="muted">
+                Suivez-nous sur les réseaux pour découvrir nos actualités et
+                conseils.
+              </p>
+              <div class="socials">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer"></section>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -874,22 +874,6 @@ textarea.input {
         gap: var(--space-md);
     }
 
-    @media (max-width: 600px) {
-        .team-row {
-            grid-template-columns: 1fr;
-        }
-
-        .member {
-            min-height: 190px;
-            padding: 12px;
-        }
-
-        .member-photo {
-            width: 64px;
-            height: 64px;
-        }
-    }
-
     .newsletter form {
         display: flex;
         flex-direction: column;
@@ -899,6 +883,22 @@ textarea.input {
 
     }
 
+}
+
+@media (max-width: 600px) {
+    .team-row {
+        grid-template-columns: 1fr;
+    }
+
+    .member {
+        min-height: 190px;
+        padding: 12px;
+    }
+
+    .member-photo {
+        width: 64px;
+        height: 64px;
+    }
 }
 
 /* Breakpoint 2 : ≥768px (tablettes) */

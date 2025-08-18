@@ -97,6 +97,7 @@ a {
 .btn-primary {
     color: #fff;
     background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+    max-width: 10rem;
 }
 
 .btn-outline {
@@ -221,7 +222,6 @@ body {
     padding: var(--space-2xl) 0;
     min-height: auto;
 }
-
 .hero h1 {
     font-size: 2rem;
     line-height: 1.1;
@@ -458,7 +458,6 @@ body {
 
 .testimonial-projet {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -524,7 +523,7 @@ body {
     padding: var(--space-md);
     font-size: 1rem;
     border: 2px solid #ccc;
-    border-radius: 6px;
+    border-radius: 10px;
     outline: none;
     transition: border-color 0.3s;
     min-height: 44px;
@@ -615,8 +614,6 @@ footer {
     opacity: 1;
     transform: none;
 }
-
-
 
 /* ============ CONTACT PAGE LAYOUT ============ */
 .contact-grid {
@@ -720,7 +717,7 @@ footer {
     color: var(--muted, #6b7280);
 }
 
-/* ============ FORMES (garde tes styles existants) ============ */
+/* ============ FORMES ============ */
 form {
     display: grid;
     gap: 14px;
@@ -738,9 +735,6 @@ textarea.input {
     min-height: 140px;
     resize: vertical;
 }
-
-
-
 
 /*animation du portefolio*/
 
@@ -824,9 +818,10 @@ textarea.input {
         padding-right: var(--space-lg);
     }
 
-    .hero h1 {
+
+    /* .hero h1 {
         font-size: 2.5rem;
-    }
+    } */
 
     .hero-buttons {
         flex-direction: row;
@@ -868,6 +863,14 @@ textarea.input {
         grid-template-columns: 1fr;
     }
 
+    .contact-grid button {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+        height: 44px;
+
+    }
+
     .testimonial-projet {
         flex-direction: column;
         align-items: center;
@@ -876,11 +879,41 @@ textarea.input {
 
     .newsletter form {
         display: flex;
-        flex-direction: column;
         gap: var(--space-md);
         align-items: stretch;
         margin-top: var(--space-lg);
 
+    }
+
+    .cta a {
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .footer-grid h4 {
+        margin-bottom: 5px;
+    }
+
+    .footer-grid a {
+        font-size: 0.875rem;
+    }
+
+    .footer-grid a:hover {
+        color: var(--grad-start);
+        text-decoration: underline;
+    }
+
+    .socials {
+        justify-content: left;
+        margin-top: var(--space-md);
     }
 
 }
@@ -1009,6 +1042,12 @@ textarea.input {
 
     .contact-grid {
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .testimonial-projet {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
     }
 }
 

@@ -64,7 +64,7 @@ a {
 /* Responsive container system */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     padding-left: var(--space-md);
     padding-right: var(--space-md);
@@ -104,10 +104,26 @@ a {
     border: 2px solid var(--brand-blue);
     color: var(--brand-blue);
     background: #fff;
+    transition: all 0.25s ease;
+    max-width: 10rem;
+    font-weight: bold;
+    font-size: 0.80rem;
 }
 
 /* Badge */
 .badge {
+    display: none;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.375rem 0.625rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: rgba(37, 99, 235, .08);
+    color: var(--brand-blue-600);
+}
+
+.badge1 {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
@@ -117,6 +133,8 @@ a {
     font-size: 0.875rem;
     background: rgba(37, 99, 235, .08);
     color: var(--brand-blue-600);
+    margin-top: var(--space-xl);
+    margin-left: var(--space-lg);
 }
 
 /* Navigation - Mobile First Approach */
@@ -189,6 +207,11 @@ body {
     transition: all 0.25s ease;
 }
 
+.menu .btn {
+    width: 100%;
+    max-width: 900px;
+}
+
 .menu a.active,
 .menu a:hover {
     background: #eef2ff;
@@ -222,6 +245,7 @@ body {
     padding: var(--space-2xl) 0;
     min-height: auto;
 }
+
 .hero h1 {
     font-size: 2rem;
     line-height: 1.1;
@@ -238,8 +262,10 @@ body {
 
 .hero-buttons {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: var(--space-lg);
     margin-top: var(--space-lg);
 }
 
@@ -460,6 +486,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: var(--space-lg);
+    flex-direction: column;
 }
 
 .testimonial-prove img {
@@ -471,30 +499,35 @@ body {
 /* CTA Section */
 .cta {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    gap: var(--space-lg);
     background: #eef2ff;
     border-radius: var(--radius);
     padding: var(--space-2xl);
     text-align: center;
-    padding: 0;
 }
 
 .cta .copy h2 {
     margin-bottom: var(--space-sm);
 }
 
+.cta a {
+    width: 100%;
+    max-width: 900px;
+}
+
 /* Newsletter */
 .newsletter {
     background: var(--bg);
-    padding: var(--space-2xl) 0;
+    padding: var(--space-2xl) 1.5rem;
     text-align: center;
 }
 
 .newsletter-container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: --;
+    background-color: var(--bg);
     padding: var(--space-lg);
     background: #eef2ff;
     border-radius: var(--radius);
@@ -516,7 +549,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .newsletter input {
@@ -527,10 +562,16 @@ body {
     outline: none;
     transition: border-color 0.3s;
     min-height: 44px;
+    width: 100%;
 }
 
 .newsletter input:focus {
     border-color: var(--grad-end);
+}
+
+.newsletter button {
+    width: 100%;
+    max-width: 900px;
 }
 
 #newsletterMessage {
@@ -538,7 +579,8 @@ body {
     font-size: 0.875rem;
 }
 
-/* Footer */
+/* ==== FOOTER ==== */
+
 footer {
     padding: var(--space-2xl) 0;
     border-top: 1px solid #eef2f7;
@@ -549,29 +591,44 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    text-align: center;
+    gap: 0.5em;
+    text-align: left;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+    padding: 8px;
+    background: var(--section);
+    border: solid 1px var(--section);
+    border-radius: 8px;
+}
+
+.footer-grid>div:first-child>p {
+    margin-top: 10px;
 }
 
 .footer-grid h4 {
-    color: var(--section);
     margin-bottom: var(--space-md);
     font-weight: 600;
 }
 
 .footer-grid a {
-    color: var(--section);
+    font-size: 0.875rem;
     line-height: 2;
+    color: var(--section);
     transition: color 0.25s ease;
 }
 
 .footer-grid a:hover {
     color: var(--grad-start);
+    text-decoration: underline;
 }
+
 
 .socials {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: var(--space-sm);
     margin-top: var(--space-md);
 }
@@ -582,17 +639,26 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: var(--bg);
-    color: var(--text);
     font-size: 1rem;
+    color: var(--text);
+    background-color: var(--bg);
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 .socials a:hover {
-    transform: translateY(-4px) scale(1.05);
-    background: linear-gradient(45deg, var(--grad-start), var(--grad-end));
     color: #fff;
+    background: linear-gradient(45deg, var(--grad-start), var(--grad-end));
+    transform: translateY(-4px) scale(1.05);
+}
+
+.copyright {
+    display: block;
+    margin: var(--space-md) auto 0;
+    padding-top: var(--space-sm);
+    font-size: 0.70rem;
+    text-align: center;
+    border-top: 1px solid var(--gradient);
 }
 
 /* Accent text */
@@ -618,9 +684,15 @@ footer {
 /* ============ CONTACT PAGE LAYOUT ============ */
 .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: 1;
     gap: 28px;
     align-items: start;
+}
+
+.contact-grid button {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
 }
 
 /* Harmonise la carte de gauche avec le style du formulaire */
@@ -802,26 +874,12 @@ textarea.input {
     background: linear-gradient(to left, white, transparent);
 }
 
-
-
-
-/* ================================
-   GLOBAL RESPONSIVE OPTIMISÉ MOBILE-FIRST
-================================ */
-
-/* Base mobile (par défaut) déjà définie dans tes styles */
-
 /* Breakpoint 1 : ≥480px (petits téléphones larges) */
 @media (min-width: 480px) {
     .container {
         padding-left: var(--space-lg);
         padding-right: var(--space-lg);
     }
-
-
-    /* .hero h1 {
-        font-size: 2.5rem;
-    } */
 
     .hero-buttons {
         flex-direction: row;
@@ -845,32 +903,6 @@ textarea.input {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .team-row {
-        grid-template-columns: 1fr;
-    }
-
-    .member {
-        min-height: 190px;
-        padding: 12px;
-    }
-
-    .member-photo {
-        width: 64px;
-        height: 64px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid button {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 800px;
-        height: 44px;
-
-    }
-
     .testimonial-projet {
         flex-direction: column;
         align-items: center;
@@ -890,30 +922,8 @@ textarea.input {
         height: auto;
         margin: 0 auto;
     }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        text-align: left;
-    }
-
-    .footer-grid h4 {
-        margin-bottom: 5px;
-    }
-
-    .footer-grid a {
-        font-size: 0.875rem;
-    }
-
-    .footer-grid a:hover {
+    .copyright a:hover {
         color: var(--grad-start);
-        text-decoration: underline;
-    }
-
-    .socials {
-        justify-content: left;
-        margin-top: var(--space-md);
     }
 
 }
@@ -949,6 +959,13 @@ textarea.input {
         font-size: 3rem;
     }
 
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
     .section h2 {
         font-size: 2.25rem;
     }
@@ -957,8 +974,20 @@ textarea.input {
         font-size: 1.125rem;
     }
 
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .testimonial-projet {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+    }
+
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4xl);
+        justify-content: space-between;
         text-align: left;
     }
 
@@ -971,6 +1000,16 @@ textarea.input {
         align-items: center;
         justify-content: space-between;
         text-align: left;
+        gap: var(--space-3xl);
+    }
+
+    .cta .copy {
+        flex: 1;
+    }
+
+    .cta a {
+        max-width: 300px;
+        width: 100%;
     }
 
     .team-row {
@@ -980,6 +1019,29 @@ textarea.input {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    .newsletter form {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-sm);
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .newsletter button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .badge1 {
+        margin-left: var(--space-2xl);
+    }
+
+    .copyright a:hover {
+        color: var(--grad-start);
+    }
+
 }
 
 /* Breakpoint 3 : ≥992px (desktop) */
@@ -988,6 +1050,14 @@ textarea.input {
     /* Navbar horizontal */
     .burger {
         display: none;
+    }
+
+    .badge1 {
+        display: none;
+    }
+
+    .badge {
+        display: inline-flex;
     }
 
     .menu {
@@ -1003,8 +1073,8 @@ textarea.input {
     }
 
     .logo img {
-        width: 60px;
-        height: 60px;
+        width: 90px;
+        height: auto;
     }
 
     .logo {
@@ -1024,6 +1094,13 @@ textarea.input {
         order: 0;
     }
 
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: var(--space-md);
+    }
+
     .hero h1 {
         font-size: clamp(2.5rem, 5vw, 3.5rem);
     }
@@ -1033,7 +1110,12 @@ textarea.input {
     }
 
     .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .footer-grid .logo img {
+        width: 120px;
+        height: auto;
     }
 
     .team-row {
@@ -1048,6 +1130,14 @@ textarea.input {
         flex-direction: row;
         align-items: center;
         gap: var(--space-md);
+    }
+
+    .copyright {
+        font-size: var(--space-sm);
+    }
+
+    .copyright a:hover {
+        color: var(--grad-start);
     }
 }
 

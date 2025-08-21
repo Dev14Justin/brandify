@@ -558,69 +558,83 @@ observer.observe(kpisSection);
 
 
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTm0ocDsWX2GVCNxrHvGNdBJ_zSKnLnn8RK1etZXfsxYaOFZmcq61oNapiMwO1UBbU/exec"; // Remplace par ton URL
 
-// ========== FORMULAIRE DE CONTACT ==========
-const contactForm = document.getElementById("contact-form");
-if (contactForm) {
-  contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = {
-      type: "contact",
-      name: e.target.name.value,
-      email: e.target.email.value,
-      tel: e.target.tel.value,
-      company: e.target.company.value,
-      service: e.target.service.value,
-      message: e.target.message.value,
-    };
+document.addEventListener("DOMContentLoaded", () => {
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTm0ocDsWX2GVCNxrHvGNdBJ_zSKnLnn8RK1etZXfsxYaOFZmcq61oNapiMwO1UBbU/exec";
 
-    try {
-      const response = await fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
-        mode: "cors"
-      });
+    // FORMULAIRE DE CONTACT
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-      const result = await response.json();
-      document.getElementById("form-status").textContent = result.message;
-      document.getElementById("form-status").style.color = "green";
-      contactForm.reset();
-    } catch (error) {
-      document.getElementById("form-status").textContent = "❌ Erreur d’envoi";
-      document.getElementById("form-status").style.color = "red";
+            const formData = {
+                type: "contact",
+                name: e.target.name.value,
+                email: e.target.email.value,
+                tel: e.target.tel.value,
+                company: e.target.company.value,
+                service: e.target.service.value,
+                message: e.target.message.value,
+            };
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                    headers: { "Content-Type": "application/json" },
+                });
+
+
+                const raw = await response.text();
+                console.log("Réponse brute du serveur :", raw);
+
+                document.getElementById("form-status").textContent = raw;
+
+
+                // const result = await response.json();
+                // document.getElementById("form-status").textContent = result.message;
+                document.getElementById("form-status").style.color = "green";
+                contactForm.reset();
+            } catch (error) {
+                document.getElementById("form-status").textContent = "❌ Erreur d’envoi";
+                document.getElementById("form-status").style.color = "red";
+            }
+        });
     }
-  });
-}
 
-// ========== FORMULAIRE NEWSLETTER ==========
-const newsletterForm = document.getElementById("newsletterForm");
-if (newsletterForm) {
-  newsletterForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("newsletterEmail").value;
+    // FORMULAIRE NEWSLETTER
+    const newsletterForm = document.getElementById("newsletterForm");
+    if (newsletterForm) {
+        newsletterForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    const formData = {
-      type: "newsletter",
-      email: email,
-    };
+            const formData = {
+                type: "newsletter",
+                email: document.getElementById("newsletterEmail").value,
+            };
 
-    try {
-      const response = await fetch(SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
-        mode: "cors"
-      });
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                    headers: { "Content-Type": "application/json" },
+                });
+                
 
-      const result = await response.json();
-      document.getElementById("newsletterMessage").textContent = result.message;
-      document.getElementById("newsletterMessage").style.color = "green";
-      newsletterForm.reset();
-    } catch (error) {
-      document.getElementById("newsletterMessage").textContent = "❌ Erreur d’abonnement";
-      document.getElementById("newsletterMessage").style.color = "red";
+                const raw = await response.text();
+                console.log("Réponse brute newsletter :", raw);
+
+                document.getElementById("newsletterMessage").textContent = raw;
+
+                // const result = await response.json();
+                // document.getElementById("newsletterMessage").textContent = result.message;
+                document.getElementById("newsletterMessage").style.color = "green";
+                newsletterForm.reset();
+            } catch (error) {
+                document.getElementById("newsletterMessage").textContent = "❌ Erreur d’abonnement";
+                document.getElementById("newsletterMessage").style.color = "red";
+            }
+        });
     }
-  });
-}
+});

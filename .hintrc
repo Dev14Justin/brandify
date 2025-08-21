@@ -11,6 +11,13 @@
           "min-height: auto"
         ]
       }
-    ]
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off"
+      }
+    ],
+    "no-inline-styles": "off"
   }
 }

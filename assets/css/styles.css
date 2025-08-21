@@ -294,7 +294,7 @@ body {
 .kpis {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: var(--space-md);
+    gap: var(--space-xs);
     margin-top: var(--space-lg);
 }
 

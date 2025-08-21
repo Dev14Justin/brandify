@@ -180,117 +180,117 @@ qsa('nav .menu a').forEach(link => {
     }
 });
 
-// // ========== NEWSLETTER ==========
-// // Votre logique avec améliorations UX
-// const newsletterForm = qs('#newsletterForm');
-// const newsletterMessage = qs('#newsletterMessage');
+// ========== NEWSLETTER ==========
+// Votre logique avec améliorations UX
+const newsletterForm = qs('#newsletterForm');
+const newsletterMessage = qs('#newsletterMessage');
 
-// if (newsletterForm && newsletterMessage) {
-//     newsletterForm.addEventListener('submit', function (e) {
-//         e.preventDefault();
+if (newsletterForm && newsletterMessage) {
+    newsletterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-//         const emailInput = qs('#newsletterEmail');
-//         const email = emailInput.value.trim();
-//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailInput = qs('#newsletterEmail');
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-//         // Reset message
-//         newsletterMessage.className = '';
+        // Reset message
+        newsletterMessage.className = '';
 
-//         if (!email) {
-//             showMessage('❌ Veuillez entrer une adresse email.', 'error');
-//             return;
-//         }
+        if (!email) {
+            showMessage('❌ Veuillez entrer une adresse email.', 'error');
+            return;
+        }
 
-//         if (!emailPattern.test(email)) {
-//             showMessage('❌ Veuillez entrer une adresse email valide.', 'error');
-//             return;
-//         }
+        if (!emailPattern.test(email)) {
+            showMessage('❌ Veuillez entrer une adresse email valide.', 'error');
+            return;
+        }
 
-//         // Simulation d'envoi (vous pouvez remplacer par un vrai appel API)
-//         const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-//         const originalText = submitBtn.textContent;
+        // Simulation d'envoi (vous pouvez remplacer par un vrai appel API)
+        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
 
-//         submitBtn.disabled = true;
-//         submitBtn.textContent = 'Envoi...';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi...';
 
-//         setTimeout(() => {
-//             showMessage('✅ Merci pour votre abonnement !', 'success');
-//             emailInput.value = '';
-//             submitBtn.disabled = false;
-//             submitBtn.textContent = originalText;
+        setTimeout(() => {
+            showMessage('✅ Merci pour votre abonnement !', 'success');
+            emailInput.value = '';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
 
-//             // Effacer le message après 5 secondes
-//             setTimeout(() => {
-//                 newsletterMessage.textContent = '';
-//                 newsletterMessage.className = '';
-//             }, 5000);
-//         }, 1000);
+            // Effacer le message après 5 secondes
+            setTimeout(() => {
+                newsletterMessage.textContent = '';
+                newsletterMessage.className = '';
+            }, 5000);
+        }, 1000);
 
-//         function showMessage(text, type) {
-//             newsletterMessage.textContent = text;
-//             newsletterMessage.style.color = type === 'error' ? 'red' : 'green';
-//             newsletterMessage.className = type;
-//         }
-//     });
-// }
+        function showMessage(text, type) {
+            newsletterMessage.textContent = text;
+            newsletterMessage.style.color = type === 'error' ? 'red' : 'green';
+            newsletterMessage.className = type;
+        }
+    });
+}
 
-// // ========== FORMULAIRE DE CONTACT ==========
-// // Votre logique avec améliorations
-// const contactForm = qs('#contact-form');
-// const formStatus = qs('#form-status');
+// ========== FORMULAIRE DE CONTACT ==========
+// Votre logique avec améliorations
+const contactForm = qs('#contact-form');
+const formStatus = qs('#form-status');
 
-// if (contactForm) {
-//     contactForm.addEventListener('submit', (e) => {
-//         e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-//         const formData = new FormData(contactForm);
-//         const data = Object.fromEntries(formData);
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
 
-//         // Validation des champs requis
-//         const requiredFields = ['name', 'email', 'message'];
-//         const emptyFields = requiredFields.filter(field => !data[field]?.trim());
+        // Validation des champs requis
+        const requiredFields = ['name', 'email', 'message'];
+        const emptyFields = requiredFields.filter(field => !data[field]?.trim());
 
-//         if (emptyFields.length > 0) {
-//             showFormMessage('❌ Merci de remplir tous les champs obligatoires.', 'error');
-//             // Focus sur le premier champ vide
-//             const firstEmptyField = contactForm.querySelector(`[name="${emptyFields[0]}"]`);
-//             if (firstEmptyField) firstEmptyField.focus();
-//             return;
-//         }
+        if (emptyFields.length > 0) {
+            showFormMessage('❌ Merci de remplir tous les champs obligatoires.', 'error');
+            // Focus sur le premier champ vide
+            const firstEmptyField = contactForm.querySelector(`[name="${emptyFields[0]}"]`);
+            if (firstEmptyField) firstEmptyField.focus();
+            return;
+        }
 
-//         // Validation email
-//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         if (!emailPattern.test(data.email.trim())) {
-//             showFormMessage('❌ Veuillez entrer une adresse email valide.', 'error');
-//             return;
-//         }
+        // Validation email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(data.email.trim())) {
+            showFormMessage('❌ Veuillez entrer une adresse email valide.', 'error');
+            return;
+        }
 
-//         // Simulation d'envoi
-//         const submitBtn = contactForm.querySelector('button[type="submit"]');
-//         const originalText = submitBtn.textContent;
+        // Simulation d'envoi
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
 
-//         submitBtn.disabled = true;
-//         submitBtn.textContent = 'Envoi...';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi...';
 
-//         setTimeout(() => {
-//             showFormMessage('✅ Merci ! Votre message a bien été envoyé.', 'success');
-//             contactForm.reset();
-//             submitBtn.disabled = false;
-//             submitBtn.textContent = originalText;
-//         }, 1500);
-//     });
+        setTimeout(() => {
+            showFormMessage('✅ Merci ! Votre message a bien été envoyé.', 'success');
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }, 1500);
+    });
 
-//     function showFormMessage(message, type) {
-//         if (formStatus) {
-//             formStatus.textContent = message;
-//             formStatus.style.color = type === 'error' ? 'red' : 'green';
-//             formStatus.className = type;
-//         } else {
-//             // Fallback si #form-status n'existe pas
-//             alert(message);
-//         }
-//     }
-// }
+    function showFormMessage(message, type) {
+        if (formStatus) {
+            formStatus.textContent = message;
+            formStatus.style.color = type === 'error' ? 'red' : 'green';
+            formStatus.className = type;
+        } else {
+            // Fallback si #form-status n'existe pas
+            alert(message);
+        }
+    }
+}
 
 // ========== SCROLL SMOOTH POUR LES ANCRES ==========
 qsa('a[href^="#"]').forEach(anchor => {
@@ -559,82 +559,83 @@ observer.observe(kpisSection);
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTm0ocDsWX2GVCNxrHvGNdBJ_zSKnLnn8RK1etZXfsxYaOFZmcq61oNapiMwO1UBbU/exec";
 
-    // FORMULAIRE DE CONTACT
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+// document.addEventListener("DOMContentLoaded", () => {
+//     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTm0ocDsWX2GVCNxrHvGNdBJ_zSKnLnn8RK1etZXfsxYaOFZmcq61oNapiMwO1UBbU/exec";
 
-            const formData = {
-                type: "contact",
-                name: e.target.name.value,
-                email: e.target.email.value,
-                tel: e.target.tel.value,
-                company: e.target.company.value,
-                service: e.target.service.value,
-                message: e.target.message.value,
-            };
+//     // FORMULAIRE DE CONTACT
+//     const contactForm = document.getElementById("contact-form");
+//     if (contactForm) {
+//         contactForm.addEventListener("submit", async (e) => {
+//             e.preventDefault();
 
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: "POST",
-                    body: JSON.stringify(formData),
-                    headers: { "Content-Type": "application/json" },
-                });
+//             const formData = {
+//                 type: "contact",
+//                 name: e.target.name.value,
+//                 email: e.target.email.value,
+//                 tel: e.target.tel.value,
+//                 company: e.target.company.value,
+//                 service: e.target.service.value,
+//                 message: e.target.message.value,
+//             };
 
-
-                const raw = await response.text();
-                console.log("Réponse brute du serveur :", raw);
-
-                document.getElementById("form-status").textContent = raw;
+//             try {
+//                 const response = await fetch(SCRIPT_URL, {
+//                     method: "POST",
+//                     body: JSON.stringify(formData),
+//                     headers: { "Content-Type": "application/json" },
+//                 });
 
 
-                // const result = await response.json();
-                // document.getElementById("form-status").textContent = result.message;
-                document.getElementById("form-status").style.color = "green";
-                contactForm.reset();
-            } catch (error) {
-                document.getElementById("form-status").textContent = "❌ Erreur d’envoi";
-                document.getElementById("form-status").style.color = "red";
-            }
-        });
-    }
+//                 const raw = await response.text();
+//                 console.log("Réponse brute du serveur :", raw);
 
-    // FORMULAIRE NEWSLETTER
-    const newsletterForm = document.getElementById("newsletterForm");
-    if (newsletterForm) {
-        newsletterForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+//                 document.getElementById("form-status").textContent = raw;
 
-            const formData = {
-                type: "newsletter",
-                email: document.getElementById("newsletterEmail").value,
-            };
 
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: "POST",
-                    body: JSON.stringify(formData),
-                    headers: { "Content-Type": "application/json" },
-                });
+//                 // const result = await response.json();
+//                 // document.getElementById("form-status").textContent = result.message;
+//                 document.getElementById("form-status").style.color = "green";
+//                 contactForm.reset();
+//             } catch (error) {
+//                 document.getElementById("form-status").textContent = "❌ Erreur d’envoi";
+//                 document.getElementById("form-status").style.color = "red";
+//             }
+//         });
+//     }
+
+//     // FORMULAIRE NEWSLETTER
+//     const newsletterForm = document.getElementById("newsletterForm");
+//     if (newsletterForm) {
+//         newsletterForm.addEventListener("submit", async (e) => {
+//             e.preventDefault();
+
+//             const formData = {
+//                 type: "newsletter",
+//                 email: document.getElementById("newsletterEmail").value,
+//             };
+
+//             try {
+//                 const response = await fetch(SCRIPT_URL, {
+//                     method: "POST",
+//                     body: JSON.stringify(formData),
+//                     headers: { "Content-Type": "application/json" },
+//                 });
                 
 
-                const raw = await response.text();
-                console.log("Réponse brute newsletter :", raw);
+//                 const raw = await response.text();
+//                 console.log("Réponse brute newsletter :", raw);
 
-                document.getElementById("newsletterMessage").textContent = raw;
+//                 document.getElementById("newsletterMessage").textContent = raw;
 
-                // const result = await response.json();
-                // document.getElementById("newsletterMessage").textContent = result.message;
-                document.getElementById("newsletterMessage").style.color = "green";
-                newsletterForm.reset();
-            } catch (error) {
-                document.getElementById("newsletterMessage").textContent = "❌ Erreur d’abonnement";
-                document.getElementById("newsletterMessage").style.color = "red";
-            }
-        });
-    }
-});
+//                 // const result = await response.json();
+//                 // document.getElementById("newsletterMessage").textContent = result.message;
+//                 document.getElementById("newsletterMessage").style.color = "green";
+//                 newsletterForm.reset();
+//             } catch (error) {
+//                 document.getElementById("newsletterMessage").textContent = "❌ Erreur d’abonnement";
+//                 document.getElementById("newsletterMessage").style.color = "red";
+//             }
+//         });
+//     }
+// });

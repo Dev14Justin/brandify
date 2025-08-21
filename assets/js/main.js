@@ -509,3 +509,46 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(kpisSection);
 
 
+
+
+
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let formData = {
+        type: "contact",
+        name: e.target.name.value,
+        email: e.target.email.value,
+        tel: e.target.tel.value,
+        company: e.target.company.value,
+        service: e.target.service.value,
+        message: e.target.message.value,
+    };
+
+    let response = await fetch("https://script.google.com/macros/s/AKfycbwwCYGXU1VDyoW8Opm2sTTBlKUtYhWFcAk2ShZXiqKfO9zaWEnt-lPH6T01CviTpivyqA/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+    });
+
+    let result = await response.json();
+    document.getElementById("form-status").textContent = "Message envoyé ✅";
+});
+
+
+document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let formData = {
+        type: "newsletter",
+        email: document.getElementById("newsletterEmail").value,
+    };
+
+    let response = await fetch("https://script.google.com/macros/s/AKfycbwwCYGXU1VDyoW8Opm2sTTBlKUtYhWFcAk2ShZXiqKfO9zaWEnt-lPH6T01CviTpivyqA/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+    });
+
+    let result = await response.json();
+    document.getElementById("newsletterMessage").textContent = "Inscription réussie 🎉";
+});
+

@@ -528,6 +528,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     let response = await fetch("https://script.google.com/macros/s/AKfycbwwCYGXU1VDyoW8Opm2sTTBlKUtYhWFcAk2ShZXiqKfO9zaWEnt-lPH6T01CviTpivyqA/exec", {
         method: "POST",
         body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" }
     });
 
     let result = await response.json();
@@ -546,6 +547,7 @@ document.getElementById("newsletterForm").addEventListener("submit", async (e) =
     let response = await fetch("https://script.google.com/macros/s/AKfycbwwCYGXU1VDyoW8Opm2sTTBlKUtYhWFcAk2ShZXiqKfO9zaWEnt-lPH6T01CviTpivyqA/exec", {
         method: "POST",
         body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" }
     });
 
     let result = await response.json();
